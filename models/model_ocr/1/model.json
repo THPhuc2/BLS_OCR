@@ -1,0 +1,8 @@
+{
+    "model": "/home/tiennv/phucth/ocr/model/Qwen2.5-VL-7B-Instruct",
+    "disable_log_requests": true,
+    "gpu_memory_utilization": 0.85,   
+    "swap_space": 8,                   
+    "max_model_len": 2048,
+    "cpu_offload_gb": 2                
+}

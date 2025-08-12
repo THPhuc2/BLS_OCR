@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  tritonserver:
+    build:
+      context: .
+      dockerfile: dockerfile
+    command: [
+      "tritonserver",
+      "--model-repository=/models"
+    ]
+
+    ports:
+      - "8005:8000"  # gRPC
+      - "8006:8001"  # HTTP
+      - "8007:8002"  # Metrics
+
+    volumes:
+      - ./models:/models
+      - /home/tiennv/phucth/ocr/model/Qwen2.5-VL-7B-Instruct:/home/tiennv/phucth/ocr/model/Qwen2.5-VL-7B-Instruct
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

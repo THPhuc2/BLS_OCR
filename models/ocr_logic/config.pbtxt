@@ -1,0 +1,22 @@
+name: "ocr_logic"
+backend: "python"
+
+input [
+  {
+    name: "IMAGE"
+    data_type: TYPE_UINT8
+    dims: [ -1 ]
+  }
+]
+
+output [
+  {
+    name: "FINAL_OUTPUT"
+    data_type: TYPE_STRING
+    dims: [ 1 ]
+  }
+]
+
+instance_group [
+  { kind: KIND_CPU }
+]
